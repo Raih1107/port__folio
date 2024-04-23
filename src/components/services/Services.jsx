@@ -1,6 +1,10 @@
-import { useRef } from "react";
+import React, { useRef } from "react";
 import "./services.scss";
 import { motion, useInView } from "framer-motion";
+import mySVG1 from "./react-2.svg";
+import mySVG2 from "./framer-motion.svg";
+import mySVG3 from "./tailwind-svgrepo-com.svg";
+import mySVG4 from "./gsap-greensock.svg";
 
 const variants = {
   initial: {
@@ -21,7 +25,6 @@ const variants = {
 
 const Services = () => {
   const ref = useRef();
-
   const isInView = useInView(ref, { margin: "-100px" });
 
   return (
@@ -29,15 +32,13 @@ const Services = () => {
       className="services"
       variants={variants}
       initial="initial"
-      // animate="animate"
-      // whileInView="animate"
       ref={ref}
-      animate={"animate"}
+      animate={isInView ? "animate" : "initial"}
     >
       <motion.div className="textContainer" variants={variants}>
         <p>
-        I focus on  building responsive web applications
-          <br />  with a focus on high-quality animations. 
+          I focus on building responsive web applications
+          <br /> with a focus on high-quality animations.
         </p>
         <hr />
       </motion.div>
@@ -45,56 +46,44 @@ const Services = () => {
         <div className="title">
           <img src="/people.webp" alt="" />
           <h1>
-            <motion.b whileHover={{color:"orange"}}>Unique</motion.b> touch
+            <motion.b whileHover={{ color: "orange" }}>Unique</motion.b> touch
           </h1>
         </div>
         <div className="title">
           <h1>
-            <motion.b whileHover={{color:"orange"}}>For Your</motion.b> Business.
+            <motion.b whileHover={{ color: "orange" }}>For Your</motion.b>{" "}
+            Business.
           </h1>
-          <button>WHAT I DO?</button>
         </div>
       </motion.div>
       <motion.div className="listContainer" variants={variants}>
         <motion.div
           className="box"
-          whileHover={{ background: "lightgray", color: "black" }}
+          whileHover={{ backgroundColor: "black" }} // Hover background color for React
         >
-          <h2>ReactJS</h2>
-          <p>
-          With expertise in ReactJS, I craft dynamic user interfaces and interactive web applications, ensuring seamless functionality and an engaging user experience. Leveraging React's component-based architecture, I create scalable and efficient solutions tailored to your needs.
-          </p>
-          <button>Go</button>
+          <img src={mySVG1} alt="React Icon" style={{ width: "150px", height: "150px" }} />
+          <h2 style={{ textAlign: "center", marginTop: "20px" }}>ReactJS</h2>
         </motion.div>
         <motion.div
           className="box"
-          whileHover={{ background: "lightgray", color: "black" }}
+          whileHover={{ backgroundColor: "black" }} // Hover background color for Framer Motion
         >
-          <h2>TailwindCSS</h2>
-          <p>
-          Utilizing TailwindCSS, I design responsive and visually appealing UIs with streamlined code. By leveraging its utility-first approach, I ensure fast development and easy maintenance, allowing for rapid prototyping and consistent design across devices.
-          </p>
-          <button>Go</button>
+          <img src={mySVG2} alt="Framer Motion Icon" style={{ width: "150px", height: "150px" }} />
+          <h2 style={{ textAlign: "center", marginTop: "20px" }}>Framer Motion</h2>
         </motion.div>
         <motion.div
           className="box"
-          whileHover={{ background: "lightgray", color: "black" }}
+          whileHover={{ backgroundColor: "black" }} // Hover background color for TailwindCSS
         >
-          <h2>Framer Motion</h2>
-          <p>
-          I harness the power of Framer Motion to bring life to interfaces through smooth animations and transitions. By incorporating custom motion designs, I enhance user engagement and create immersive experiences that captivate and delight users.
-          </p>
-          <button>Go</button>
+          <img src={mySVG3} alt="TailwindCSS Icon" style={{ width: "150px", height: "150px" }} />
+          <h2 style={{ textAlign: "center", marginTop: "20px" }}>TailwindCSS</h2>
         </motion.div>
         <motion.div
           className="box"
-          whileHover={{ background: "lightgray", color: "black" }}
+          whileHover={{ backgroundColor: "black" }} // Hover background color for GSAP
         >
-          <h2>GSAP</h2>
-          <p>
-          With proficiency in GSAP (GreenSock Animation Platform), I add fluid and expressive animations to web projects, elevating user interactions and storytelling. Through precise control and creativity, I bring your designs to life with stunning visuals and seamless motion.
-          </p>
-          <button>Go</button>
+          <img src={mySVG4} alt="GSAP Icon" style={{ width: "150px", height: "150px" }} />
+          <h2 style={{ textAlign: "center", marginTop: "20px" }}>GSAP</h2>
         </motion.div>
       </motion.div>
     </motion.div>
